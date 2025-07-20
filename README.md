@@ -45,21 +45,35 @@ The questions that this study aims to address are outlined as follows:
 >  
 > 2. To compare the predictive performance of Mandarin news sentiment with English news sentiment as reported by previous studies.
 > 
-> 3.  To determine the correlation between GDP’s demand-side components and the constructed news sentiment index.
+> 3. To determine the correlation between GDP’s demand-side components and the constructed news sentiment index.
 
 #### 📌 1.4 Scope of the Study
 
-▪️ Focuses on the use of Mandarin news sentiment for forecasting GDP and demand-side components in Malaysia.  
-▪️ Limited to data from 2022 to 2023 due to time constraints.  
-▪️ Applies a quarterly forecasting framework using machine learning models.  
-▪️ Mandarin news content was sourced from See Hua Daily News due to scraping limitations with other platforms.
+> ▪️ This study explores how Mandarin news sentiment can forecast Malaysia’s GDP and its demand components: private investment, consumption, imports, and exports.
+>
+> ▪️ It uses Mandarin articles from See Hua Daily News covering Q1 2022 to Q4 2023.
+>
+> ▪️ Only one news source is analyzed, which may introduce bias but still allows useful insights.
+>
+> ▪️ A dictionary-based sentiment method is used due to limited Mandarin models available.
+>
+> ▪️ Sentiment scores are compared with official indicators like BCI, CSI, and DOSM macroeconomic data.
+>
+> ▪️ Machine learning models such as LASSO, Ridge, SVR, Random Forest, and XGBoost are applied using a rolling window approach.
+>
+> ▪️ The study addresses the lack of non-English sentiment analysis in Malaysia’s multilingual context.
+
+
 
 #### 📌 1.5 Significance of the Study
 
-▪️ Fills a gap in sentiment analysis by focusing on Mandarin news in a multilingual, multiethnic context.  
-▪️ Provides a benchmark for future research in multilingual economies exploring economic sentiment.  
-▪️ Enhances local forecasting of macroeconomic variables using vernacular media sources.  
-▪️ Supports policymakers in improving short-term economic forecasts specific to Malaysia’s unique dynamics.
+>▪️ Fills a gap in sentiment analysis by focusing on Mandarin news in a multilingual, multiethnic context.
+>
+>▪️ Provides a benchmark for future research in multilingual economies exploring economic sentiment.
+>
+>▪️ Enhances local forecasting of macroeconomic variables using vernacular media sources.
+>
+>▪️ Supports policymakers in improving short-term economic forecasts specific to Malaysia’s unique dynamics.
 
 ---
 
@@ -67,10 +81,13 @@ The questions that this study aims to address are outlined as follows:
 
 Provides a foundation for understanding the scope of the study and highlights existing research gaps. It covers four main areas:
 
-▪️ Adoption of news sentiment for forecasting macroeconomic indicators such as GDP growth, inflation, and unemployment.  
-▪️ Sentiment analysis of vernacular languages, with a focus on Chinese, particularly in economic and financial contexts.  
-▪️ Application of machine learning models in sentiment analysis and their effectiveness in economic forecasting.  
-▪️ A review of the work by Chong et al. (2021), which serves as a benchmark for this study.
+>▪️ Adoption of news sentiment for forecasting macroeconomic indicators such as GDP growth, inflation, and unemployment.
+>
+>▪️ Sentiment analysis of vernacular languages, with a focus on Chinese, particularly in economic and financial contexts.
+>
+>▪️ Application of machine learning models in sentiment analysis and their effectiveness in economic forecasting.
+>
+>▪️ A review of the work by Chong et al. (2021), which serves as a benchmark for this study.
 
 ...
 

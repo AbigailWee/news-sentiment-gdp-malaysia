@@ -119,13 +119,13 @@ Provides a foundation for understanding the scope of the study and highlights ex
 
 ---
 
-### CHAPTER 3: PROJECT METHODOLOGY
+### CHAPTER 3: PROJECT METHODOLOGY 
 
->▪️ The study adopts the Cross-Industry Standard Process for Data Mining (CRISP-DM), consisting of six stages: Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Deployment.
->
->▪️ Business Understanding is covered in Chapter 1. This chapter focuses on the Data Understanding, Preparation, Modelling, and Evaluation stages.
->
->▪️ Deployment is excluded due to scope limitations.
+> ▪️ The study follows the Cross-Industry Standard Process for Data Mining (CRISP-DM), which includes six stages: Business Understanding, Data Understanding, Data Preparation, Modelling, Evaluation, and Deployment.
+> 
+> ▪️ The first stage of Business Understanding has been previously addressed in Chapter 1, covering the aims and objectives of the study.
+>  
+> ▪️ The deployment stage will not be included in this study, and details of the remaining four stages — Data Understanding, Data Preparation, Modelling, and Evaluation — will be further elaborated in Chapter 4.
 
 ---
 
@@ -133,69 +133,73 @@ Provides a foundation for understanding the scope of the study and highlights ex
 
 #### 📌 4.1 Data Collection Process
 
->▪️ BCI and CSI were sourced from the Malaysian Institute of Economic Research (MIER).
->    
->▪️ Macroeconomic data (GDP, consumption, investment, imports, exports) was obtained from OpenDOSM.
->    
->▪️ A total of 3,361 Mandarin articles were scraped from See Hua Daily News using ParseHub.
+> ▪️ MIER Dataset: BCI and CSI data for 2022–2023 were purchased from the Malaysian Institute of Economic Research (MIER).
+> 
+> ▪️ Macroeconomics Dataset: Data for GDP, private consumption, private investment, imports, and exports were sourced from the Department of Statistics Malaysia (OpenDOSM).
+> 
+> ▪️ News Articles: A total of 3,361 articles from See Hua Daily News were scraped using ParseHub due to limitations with other news portals.
 
 #### 📌 4.2 Initialization of the Data Analysis Process
 
->▪️ All datasets were loaded into Visual Studio Code for cleaning and analysis.
+> ▪️ Data Loading: Collected datasets (BCI, CSI, macroeconomic indicators, news articles) were loaded into Visual Studio Code for processing.
 
 #### 📌 4.3 Initial Exploratory Data Analysis of the Textual Dataset
 
->▪️ The article dataset was cleaned by removing missing values and irrelevant columns.
->    
->▪️ Structural checks were conducted to ensure readiness for analysis.
+> ▪️ Exploration and Cleaning: The structure of the news articles dataset was explored, missing data was cleaned, and irrelevant columns were removed.
+>  
+> ▪️ Preliminary Dataset Structure: The data was reviewed after preliminary cleaning to confirm its readiness for further analysis.
 
 #### 📌 4.4 Initial Exploratory Data Analysis of the Numerical Datasets
 
->▪️ Summary statistics and outlier detection were conducted on the BCI, CSI, and macroeconomic datasets.
+> ▪️ Exploration of BCI, CSI, and Macroeconomic Data: The structure of BCI, CSI, and macroeconomic datasets was examined. Outliers were checked, and summary statistics were generated for further analysis.
 
 #### 📌 4.5 Preprocessing Steps for the Textual Dataset
 
->▪️ Preprocessing included whitespace stripping, date conversion, and normalization.
->    
->▪️ A sentiment dictionary and stopword list were applied to prepare for sentiment scoring.
+> ▪️ Tasks: Data cleaning, including stripping whitespace, converting Chinese dates to standard format, and performing text normalization.
+> 
+> ▪️ Text Processing: Sentiment dictionary and stop words were loaded, and text preprocessing was completed to prepare the data for sentiment analysis.
 
 #### 📌 4.6 Exploratory Data Analysis (EDA) of the Preprocessed Textual Dataset
 
->▪️ Preprocessed text was verified and saved as a CSV file for sentiment analysis.
+> ▪️ Verification and Saving: The preprocessed textual data was verified and saved in CSV format for further analysis.
 
 #### 📌 4.7 Computation of the News Sentiment Index
 
->▪️ Sentiment score = (positive word count – negative word count) / total words × 1000.
->    
->▪️ Quarterly sentiment index = mean of article-level scores, scaled by article count.
+> ▪️ Sentiment Analysis: The sentiment index was calculated by analyzing the sentiment scores of each news article.
+> 
+> ▪️ Sentiment Score Calculation: Each article's sentiment score was determined by subtracting the count of negative words from positive words, normalized by the total word count, and multiplied by 1000 to create a normalized score.
+> 
+> ▪️ Normalization: This calculation results in a net count per thousand words, where values above 100 indicate positive sentiment and values below 100 indicate negative sentiment.
+> 
+> ▪️ Quarterly Index: The sentiment scores were aggregated on a quarterly basis, scaled by the number of articles per quarter, and averaged across all news portals to create the final quarterly sentiment index.
 
 #### 📌 4.8 Nowcasting BCI and CSI Figures Using the News Sentiment Index
 
->▪️ Regression models were developed to nowcast BCI and CSI using sentiment indices.
->    
->▪️ Multicollinearity checks and time series plots were used for evaluation.
+> ▪️ Data Preparation: The sentiment index was merged with BCI and CSI data for regression analysis.
+> 
+> ▪️ Time Series and Regression: Time series plotting and regression analysis were conducted to nowcast BCI and CSI values. Actual vs predicted values were plotted, and multicollinearity checks were performed to ensure model validity.
 
-#### 📌 4.9 Evaluating the Pearson Correlation Between the Macroeconomic Variables and the News Sentiment Index
+#### 📌 4.9 Evaluating the Pearson Correlation Between the Macroeconomics Variables and the News Sentiment Index
 
->▪️ The sentiment index was merged with macroeconomic data based on quarter and year.
->    
->▪️ Pearson correlation coefficients were computed to assess relationships.
+> ▪️ Data Preparation: Quarterly sentiment index data was loaded from the CSV file. It was then merged with the macroeconomic data (imports, exports, GDP, private consumption, private investment) based on Date and Quarter columns.
+> 
+> ▪️ Pearson Correlation: Pearson correlation coefficients were computed to evaluate the relationship between the sentiment index and each macroeconomic variable.
 
 #### 📌 4.10 Modelling Process for Forecasting the Five Target Variables Using Machine Learning Models
 
-**Without Hyperparameter Tuning:**
+**Modelling without Hyperparameter Tuning:**
 
->▪️ Linear Regression, LASSO, Ridge, SVR, Random Forest, and XGBoost were used.
->    
->▪️ Models used a 4-quarter rolling window.
->    
->▪️ Evaluation was based on RMSE and MAE.
+> ▪️ Initialization: RMSE and MAE functions were defined. Models such as Linear Regression, LASSO, Ridge, SVR, Random Forest, and XGBoost were used for forecasting. The data was prepared with a 4-quarter rolling window approach.
+> 
+> ▪️ Rolling Window Approach: This approach was applied to train and test the models across forecast horizons (1, 2, 3 quarters). RMSE and MAE were computed and stored for each model and variable.
+> 
+> ▪️ Results Display: RMSE and MAE ratios were plotted and analyzed for each model and forecast horizon.
 
-**With Hyperparameter Tuning:**
+**Modelling with Hyperparameter Tuning:**
 
->▪️ Grid Search optimized the parameters of each model.
->    
->▪️ Tuned models were re-evaluated and compared against baselines.
+> ▪️ Initialization and Tuning: Hyperparameter tuning using Grid Search was conducted for LASSO, Ridge, SVR, Random Forest, and XGBoost. Best models were then used in a rolling window approach.
+> 
+> ▪️ Results Display: Performance evaluation based on RMSE and MAE ratios was presented, comparing tuned models to baseline results.
 
 ---
 
@@ -203,19 +207,31 @@ Provides a foundation for understanding the scope of the study and highlights ex
 
 #### 📌 5.1 Nowcasting the BCI and CSI Figures Using the News Sentiment Index
 
->▪️ The sentiment index tracked BCI reasonably well but not CSI.
->    
->▪️ The BCI model achieved R² = 0.697 with a negative coefficient for the sentiment index.
->    
->▪️ CSI model showed weak correlation and low predictive value.
+![Screenshot 2024-10-24 201102](https://github.com/user-attachments/assets/dd0107d7-250e-4d76-a0ca-5b1ce5f745b6)
+
+> ▪️ Time Series Plot: Shows the relationship between the News Sentiment Index and MIER’s BCI and CSI from 2022 Q1 to 2023 Q4. The sentiment index trends upward with some alignment to BCI, but both indices exhibit volatility, with weak correlations between sentiment and the economic indices.
+
+![Screenshot 2024-10-25 175656](https://github.com/user-attachments/assets/54711f19-6777-4786-9088-a7efe026c846)
+
+![Screenshot 2024-10-24 201440](https://github.com/user-attachments/assets/da1b06e8-5c6a-4289-bb93-bf9ac1f9b96d)
+
+> ▪️ Regression Output for Nowcasting BCI: The regression model explained 69.7% of the variance in BCI values (R-squared = 0.697). The quarterly sentiment index negatively correlated with BCI, which was unexpected. Lagged BCI was not significant.
+
+![Screenshot 2024-10-25 175507](https://github.com/user-attachments/assets/4a1a9478-b67c-46ac-b442-12d26ddb1968)
+
+![Screenshot 2024-10-24 201901](https://github.com/user-attachments/assets/a942a265-7426-4761-b5af-37829155f76f)
+
+> ▪️ Regression Output for Nowcasting CSI: The model for CSI performed poorly with very weak correlations, indicating the sentiment index was not predictive of consumer sentiment.
 
 #### 📌 5.2 Forecasting the Five Target Variables Using the News Sentiment Index
 
->▪️ Pearson correlations with GDP and imports were weak or negative.
->    
->▪️ Without tuning: Random Forest and LASSO showed promise for investment and consumption.
->    
->▪️ With tuning: Model performance improved, particularly for private consumption.
+![Screenshot 2024-10-25 180034](https://github.com/user-attachments/assets/e9e20059-78b0-41cb-814c-bf032aa78438)
+
+> ▪️ Pearson Correlation: Correlation between the sentiment index and the five macroeconomic variables (GDP, private consumption, private investment, imports, and exports) was calculated. Most correlations were weak or negative.
+> 
+> ▪️ Performance Evaluation for Machine Learning Models Without Hyperparameter Tuning: Various models (LASSO, Ridge, Random Forest, etc.) were used in a rolling window approach to forecast the five variables. The results were evaluated using RMSE and MAE ratios.
+> 
+> ▪️ Performance Evaluation for Machine Learning Models With Hyperparameter Tuning: Hyperparameter tuning improved performance in some models. LASSO and Random Forest performed well, especially for private consumption and private investment.
 
 ---
 
@@ -223,27 +239,26 @@ Provides a foundation for understanding the scope of the study and highlights ex
 
 #### 📌 6.1 Discussion of Nowcasting Findings
 
->▪️ The sentiment index was a significant predictor for BCI but not for CSI.
->    
->▪️ Findings align with literature showing weak consumer sentiment modeling.
+> ▪️ BCI: The sentiment index significantly predicted BCI, confirming its alignment with business confidence. No multicollinearity issues were found.
+> 
+> ▪️ CSI: The sentiment index failed to predict CSI, showing weak correlation and poor model performance, similar to previous studies.
 
 #### 📌 6.2 Discussion of Forecasting Findings
 
->▪️ Sentiment index correlations with GDP, imports, and exports were weak or inconsistent.
->    
->▪️ LASSO and Random Forest models provided better performance for investment and consumption.
+> ▪️ Pearson Correlation: Sentiment had weak or negative correlations with most macroeconomic variables, particularly GDP and imports.
 
 #### 📌 6.3 Conclusions
 
->▪️ Mandarin sentiment can help forecast BCI but is less effective for broader macroeconomic indicators.
->    
->▪️ Model performance was limited by single-source data and short study period.
->    
->▪️ Future work should integrate multiple news sources and explore newer models.
+> ▪️ Mandarin-based news sentiment proved useful for forecasting business confidence (BCI) but was less effective for predicting consumer sentiment (CSI) and other macroeconomic variables like GDP and imports.
+> 
+> ▪️ While LASSO and Random Forest models performed well, particularly for private consumption and investment, the overall weak correlations highlight the limitations of using a single news source and a short timeframe.
+> 
+> ▪️ Future research should expand data sources, extend the analysis period, and explore additional models to improve forecasting accuracy across more economic variables.
 
 ---
 
-#### ⚠️ Note: Mojibake may occur when opening "preprocessed_data.csv" or "See Hua (New).csv."
+#### ⚠️ Note: Mojibake may occur with "preprocessed_data.csv" and "See Hua (New).csv."
 
-     ➤ To fix: Use Excel > Data > Get External Data > From Text > Select file > Choose "Unicode (UTF-8)" encoding.
+> To fix it, go to Data > Get External Data > From Text, select the file, and choose Unicode (UTF-8) encoding in the import wizard to display Mandarin characters correctly.
+
 

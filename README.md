@@ -49,19 +49,17 @@ The questions that this study aims to address are outlined as follows:
 
 #### 📌 1.4 Scope of the Study
 
-> ▪️ This study explores how Mandarin news sentiment can forecast Malaysia’s GDP and its demand components: private investment, consumption, imports, and exports.
+> ▪️ This study examines the use of Mandarin news sentiment to forecast Malaysia’s quarterly GDP and its demand-side components: private consumption, private investment, imports, and exports.
 >
-> ▪️ It uses Mandarin articles from See Hua Daily News covering Q1 2022 to Q4 2023.
+> ▪️ The dataset includes 3,361 economic articles scraped from See Hua Daily News, covering the period from Q1 2022 to Q4 2023.
 >
-> ▪️ Only one news source is analyzed, which may introduce bias but still allows useful insights.
+> ▪️ Sentiment analysis is conducted using a dictionary-based approach, tailored for economic contexts, due to the lack of publicly available pretrained Mandarin sentiment models for Malaysia.
 >
-> ▪️ A dictionary-based sentiment method is used due to limited Mandarin models available.
+> ▪️ The computed sentiment index is benchmarked against official indicators: Business Conditions Index (BCI), Consumer Sentiment Index (CSI), and macroeconomic statistics from the Department of Statistics Malaysia (DOSM).
 >
-> ▪️ Sentiment scores are compared with official indicators like BCI, CSI, and DOSM macroeconomic data.
+> ▪️ Multiple machine learning models—including LASSO, Ridge, SVR, Random Forest, and XGBoost—are employed using a 4-quarter rolling window forecasting framework.
 >
-> ▪️ Machine learning models such as LASSO, Ridge, SVR, Random Forest, and XGBoost are applied using a rolling window approach.
->
-> ▪️ The study addresses the lack of non-English sentiment analysis in Malaysia’s multilingual context.
+> ▪️ The study does not imply causality between sentiment and economic outcomes; it aims to assess predictive power within a limited, multilingual news context.
 
 
 
@@ -259,6 +257,6 @@ Provides a foundation for understanding the scope of the study and highlights ex
 
 #### ⚠️ Note: Mojibake may occur with "preprocessed_data.csv" and "See Hua (New).csv."
 
-> To fix it, go to Data > Get External Data > From Text, select the file, and choose Unicode (UTF-8) encoding in the import wizard to display Mandarin characters correctly.
+To fix it, go to Data > Get External Data > From Text, select the file, and choose Unicode (UTF-8) encoding in the import wizard to display Mandarin characters correctly.
 
 
